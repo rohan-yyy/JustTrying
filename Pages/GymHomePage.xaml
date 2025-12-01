@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GymApp.Pages.GymHomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Padding="20"
+    BackgroundColor="#050816">
+
+    <!-- Background 3D gradient + glow shapes -->
+    <Grid>
+        <!-- Big radial glow behind content -->
+        <Grid.Background>
+            <RadialGradientBrush Radius="0.9" Center="0.5,0.0">
+                <GradientStop Color="#19182F" Offset="0.0" />
+                <GradientStop Color="#050816" Offset="1.0" />
+            </RadialGradientBrush>
+        </Grid.Background>
+
+        <!-- Decorative floating circles to fake 3D depth -->
+        <AbsoluteLayout InputTransparent="True">
+            <Ellipse WidthRequest="220" HeightRequest="220"
+                     Fill="#201E54" Opacity="0.45"
+                     TranslationX="-80" TranslationY="-60"
+                     Rotation="25" />
+            <Ellipse WidthRequest="160" HeightRequest="160"
+                     Fill="#242E5D" Opacity="0.45"
+                     TranslationX="220" TranslationY="130"
+                     Rotation="-18" />
+        </AbsoluteLayout>
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="24">
+
+                <!-- Top App Bar -->
+                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="Hi, Rohan 👋"
+                               TextColor="White"
+                               FontSize="18"
+                               FontAttributes="Bold"/>
+                        <Label Text="Ready for today’s workout?"
+                               TextColor="#C3C6FF"
+                               FontSize="13"/>
+                    </VerticalStackLayout>
+
+                    <Border Grid.Column="1"
+                            WidthRequest="42" HeightRequest="42"
+                            StrokeThickness="0"
+                            BackgroundColor="#111827"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"
+                            StrokeShape="RoundRectangle 21">
+                        <Border.Shadow>
+                            <Shadow Brush="#000000" Radius="18" Opacity="0.7" Offset="0,6"/>
+                        </Border.Shadow>
+                        <Image Source="profile_placeholder.png"
+                               Aspect="AspectFill"
+                               Clip="EllipseGeometry Center=21,21 RadiusX=21 RadiusY=21"/>
+                    </Border>
+                </Grid>
+
+                <!-- 3D Hero Card -->
+                <Grid>
+                    <Border
+                        BackgroundColor="#111827"
+                        StrokeThickness="0"
+                        Padding="20"
+                        StrokeShape="RoundRectangle 28"
+                        TranslationY="8"
+                        RotationX="-18"
+                        RotationY="10"
+                        Scale="1.02">
+                        <Border.Shadow>
+                            <Shadow Brush="#000000" Radius="30" Opacity="0.9" Offset="0,18"/>
+                        </Border.Shadow>
+
+                        <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,Auto">
+                            <!-- Text block -->
+                            <VerticalStackLayout Spacing="6" Grid.ColumnSpan="2">
+                                <Label Text="FULL BODY BLAST"
+                                       TextColor="#7C82FF"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       />
+                                <Label Text="Today’s Power Session"
+                                       TextColor="White"
+                                       FontSize="22"
+                                       FontAttributes="Bold"/>
+                                <Label Text="45 min • Intermediate • No excuses 💪"
+                                       TextColor="#C3C6FF"
+                                       FontSize="12"/>
+                            </VerticalStackLayout>
+
+                            <!-- 3D dumbbell made from stacked shapes -->
+                            <Grid Grid.Row="1" Grid.Column="1"
+                                  RowDefinitions="Auto,Auto"
+                                  ColumnDefinitions="Auto"
+                                  Margin="0,16,0,0"
+                                  HorizontalOptions="End">
+                                <!-- Back bar -->
+                                <Border WidthRequest="84" HeightRequest="10"
+                                        BackgroundColor="#1F2937"
+                                        StrokeShape="RoundRectangle 5"
+                                        TranslationY="6"
+                                        TranslationX="3"
+                                        Opacity="0.7"/>
+                                <!-- Main bar -->
+                                <Border WidthRequest="84" HeightRequest="10"
+                                        BackgroundColor="#4B5563"
+                                        StrokeShape="RoundRectangle 5">
+                                    <Border.Shadow>
+                                        <Shadow Brush="#000000" Radius="16" Opacity="0.7" Offset="0,6"/>
+                                    </Border.Shadow>
+                                </Border>
+                                <!-- Plates -->
+                                <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Border WidthRequest="20" HeightRequest="30"
+                                            BackgroundColor="#6366F1"
+                                            StrokeShape="RoundRectangle 8"
+                                            TranslationX="-35"/>
+                                    <Border WidthRequest="20" HeightRequest="30"
+                                            BackgroundColor="#EC4899"
+                                            StrokeShape="RoundRectangle 8"
+                                            TranslationX="35"/>
+                                </Grid>
+                            </Grid>
+
+                            <!-- CTA Button -->
+                            <Border Grid.Row="2"
+                                    Grid.ColumnSpan="2"
+                                    Margin="0,20,0,0"
+                                    StrokeShape="RoundRectangle 20"
+                                    BackgroundColor="#6366F1"
+                                    HeightRequest="46">
+                                <Border.Shadow>
+                                    <Shadow Brush="#4F46E5" Radius="30" Opacity="0.9" Offset="0,10"/>
+                                </Border.Shadow>
+
+                                <Grid Padding="16,0" ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                                    <Label Text="Start Workout"
+                                           TextColor="White"
+                                           VerticalOptions="Center"
+                                           FontAttributes="Bold"
+                                           FontSize="14"/>
+                                    <Grid Grid.Column="1"
+                                          WidthRequest="26"
+                                          HeightRequest="26"
+                                          HorizontalOptions="End"
+                                          VerticalOptions="Center">
+                                        <Ellipse Fill="#4F46E5"/>
+                                        <Label Text="▶"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               TextColor="White"
+                                               FontSize="11"
+                                               TranslationX="1"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <!-- Status Row (3D chips) -->
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="12">
+                    <!-- Card 1 -->
+                    <Border BackgroundColor="#0B1120"
+                            StrokeShape="RoundRectangle 18"
+                            Padding="12"
+                            StrokeThickness="0"
+                            RotationX="-10"
+                            TranslationY="4">
+                        <Border.Shadow>
+                            <Shadow Brush="#000000" Radius="18" Opacity="0.7" Offset="0,10"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Active Plan"
+                                   TextColor="#9CA3AF"
+                                   FontSize="11"/>
+                            <Label Text="Push • Day 3"
+                                   TextColor="White"
+                                   FontSize="12"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Card 2 -->
+                    <Border BackgroundColor="#0F172A"
+                            StrokeShape="RoundRectangle 18"
+                            Padding="12"
+                            StrokeThickness="0"
+                            RotationX="-6"
+                            TranslationY="2">
+                        <Border.Shadow>
+                            <Shadow Brush="#000000" Radius="18" Opacity="0.7" Offset="0,10"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Calories"
+                                   TextColor="#9CA3AF"
+                                   FontSize="11"/>
+                            <Label Text="540 kcal"
+                                   TextColor="#FBBF24"
+                                   FontSize="13"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Card 3 -->
+                    <Border BackgroundColor="#020617"
+                            StrokeShape="RoundRectangle 18"
+                            Padding="12"
+                            StrokeThickness="0"
+                            RotationX="-4"
+                            TranslationY="1">
+                        <Border.Shadow>
+                            <Shadow Brush="#000000" Radius="18" Opacity="0.7" Offset="0,10"/>
+                        </Border.Shadow>
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Steps"
+                                   TextColor="#9CA3AF"
+                                   FontSize="11"/>
+                            <Label Text="8,240"
+                                   TextColor="#34D399"
+                                   FontSize="13"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+
+                <!-- Quick Workouts -->
+                <VerticalStackLayout Spacing="10">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Quick Workouts"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="White"/>
+                        <Label Grid.Column="1"
+                               Text="See all"
+                               TextColor="#9CA3AF"
+                               FontSize="12"
+                               VerticalOptions="End"/>
+                    </Grid>
+
+                    <ScrollView Orientation="Horizontal">
+                        <HorizontalStackLayout Spacing="14">
+
+                            <!-- Card 1 -->
+                            <Border WidthRequest="180"
+                                    BackgroundColor="#020617"
+                                    StrokeShape="RoundRectangle 22"
+                                    Padding="16"
+                                    StrokeThickness="0"
+                                    RotationY="-10"
+                                    TranslationX="4">
+                                <Border.Shadow>
+                                    <Shadow Brush="#000000" Radius="24" Opacity="0.85" Offset="0,14"/>
+                                </Border.Shadow>
+                                <VerticalStackLayout Spacing="8">
+                                    <Label Text="Dumbbell Burn"
+                                           TextColor="White"
+                                           FontAttributes="Bold"
+                                           FontSize="14"/>
+                                    <Label Text="30 min • Upper body"
+                                           TextColor="#9CA3AF"
+                                           FontSize="11"/>
+                                    <Label Text="Intermediate"
+                                           TextColor="#F97316"
+                                           FontSize="11"/>
+                                </VerticalStackLayout>
+                            </Border>
+
+                            <!-- Card 2 -->
+                            <Border WidthRequest="180"
+                                    BackgroundColor="#020617"
+                                    StrokeShape="RoundRectangle 22"
+                                    Padding="16"
+                                    StrokeThickness="0"
+                                    RotationY="-6"
+                                    TranslationX="2">
+                                <Border.Shadow>
+                                    <Shadow Brush="#000000" Radius="24" Opacity="0.85" Offset="0,14"/>
+                                </Border.Shadow>
+                                <VerticalStackLayout Spacing="8">
+                                    <Label Text="No-Equipment HIIT"
+                                           TextColor="White"
+                                           FontAttributes="Bold"
+                                           FontSize="14"/>
+                                    <Label Text="20 min • Fat burn"
+                                           TextColor="#9CA3AF"
+                                           FontSize="11"/>
+                                    <Label Text="Advanced"
+                                           TextColor="#EF4444"
+                                           FontSize="11"/>
+                                </VerticalStackLayout>
+                            </Border>
+
+                            <!-- Card 3 -->
+                            <Border WidthRequest="180"
+                                    BackgroundColor="#020617"
+                                    StrokeShape="RoundRectangle 22"
+                                    Padding="16"
+                                    StrokeThickness="0"
+                                    RotationY="-2">
+                                <Border.Shadow>
+                                    <Shadow Brush="#000000" Radius="24" Opacity="0.85" Offset="0,14"/>
+                                </Border.Shadow>
+                                <VerticalStackLayout Spacing="8">
+                                    <Label Text="Morning Mobility"
+                                           TextColor="White"
+                                           FontAttributes="Bold"
+                                           FontSize="14"/>
+                                    <Label Text="15 min • Stretch"
+                                           TextColor="#9CA3AF"
+                                           FontSize="11"/>
+                                    <Label Text="Beginner"
+                                           TextColor="#22C55E"
+                                           FontSize="11"/>
+                                </VerticalStackLayout>
+                            </Border>
+
+                        </HorizontalStackLayout>
+                    </ScrollView>
+                </VerticalStackLayout>
+
+                <!-- 3D bottom big Start button -->
+                <Grid Margin="0,10,0,10">
+                    <Border
+                        HeightRequest="56"
+                        StrokeShape="RoundRectangle 28"
+                        BackgroundColor="#10B981"
+                        TranslationY="-4"
+                        RotationX="-12">
+                        <Border.Shadow>
+                            <Shadow Brush="#059669" Radius="36" Opacity="0.9" Offset="0,16"/>
+                        </Border.Shadow>
+                        <Grid ColumnDefinitions="Auto,*" Padding="20,0">
+                            <Label Text="🔥"
+                                   FontSize="18"
+                                   VerticalOptions="Center"/>
+                            <Label Grid.Column="1"
+                                   Text="Start Custom Plan"
+                                   FontSize="15"
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

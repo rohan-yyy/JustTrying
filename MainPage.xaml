@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="GymApp.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#0F2419">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- ================= TOP BAR ================= -->
+        <Grid Grid.Row="0"
+              Padding="20,14"
+              ColumnDefinitions="*,Auto">
+
+            <Label Text="FitLife"
+                   TextColor="White"
+                   FontSize="18"
+                   FontAttributes="Bold"/>
+
+            <Label Grid.Column="1"
+                   Text="☰"
+                   FontSize="20"
+                   TextColor="White"/>
+        </Grid>
+
+        <!-- ================= BODY ================= -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="28">
+
+                <!-- HERO SECTION -->
+                <Grid HeightRequest="320">
+                    <Image Source="gym_bg.jpg"
+                           Aspect="AspectFill"/>
+
+                    <BoxView Color="#000000" Opacity="0.55"/>
+
+                    <VerticalStackLayout
+                        Padding="20"
+                        VerticalOptions="End"
+                        Spacing="14">
+
+                        <Label Text="Elevate Your Health Journey"
+                               FontSize="30"
+                               FontAttributes="Bold"
+                               TextColor="White"/>
+
+                        <Label Text="Discover a holistic approach to fitness and wellness, tailored to your unique needs."
+                               FontSize="13"
+                               TextColor="#D1D5DB"/>
+
+                        <Button Text="Explore Services"
+                                BackgroundColor="#22C55E"
+                                TextColor="Black"
+                                CornerRadius="20"
+                                FontAttributes="Bold"
+                                HeightRequest="42"
+                                WidthRequest="160"/>
+                    </VerticalStackLayout>
+                </Grid>
+
+                <!-- OUR SERVICES -->
+                <VerticalStackLayout Padding="20,0">
+                    <Label Text="Our Services"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+
+                    <Grid Margin="0,16,0,0"
+                          ColumnDefinitions="*,*"
+                          ColumnSpacing="14">
+
+                        <!-- Yoga Card -->
+                        <Border BackgroundColor="#162D22"
+                                StrokeShape="RoundRectangle 22">
+                            <VerticalStackLayout>
+                                <Image Source="yoga.jpg"
+                                       HeightRequest="140"
+                                       Aspect="AspectFill"/>
+
+                                <VerticalStackLayout Padding="14" Spacing="6">
+                                    <Label Text="Yoga Mindfulness"
+                                           FontAttributes="Bold"
+                                           TextColor="White"/>
+
+                                    <Label Text="Find your inner peace and improve flexibility with our expert-led yoga classes."
+                                           FontSize="12"
+                                           TextColor="#B7C7BF"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!-- Training Card -->
+                        <Border Grid.Column="1"
+                                BackgroundColor="#162D22"
+                                StrokeShape="RoundRectangle 22">
+                            <VerticalStackLayout>
+                                <Image Source="trainer.jpg"
+                                       HeightRequest="140"
+                                       Aspect="AspectFill"/>
+
+                                <VerticalStackLayout Padding="14" Spacing="6">
+                                    <Label Text="Personal Training"
+                                           FontAttributes="Bold"
+                                           TextColor="White"/>
+
+                                    <Label Text="Achieve your fitness goals with personalized training and dedicated coaches."
+                                           FontSize="12"
+                                           TextColor="#B7C7BF"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+
+                <!-- CLIENT REVIEWS -->
+                <VerticalStackLayout Padding="20,0" Spacing="20">
+                    <Label Text="Client Success Stories"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+
+                    <!-- Review card template reused -->
+                    <Border BackgroundColor="#0E2016"
+                            StrokeShape="RoundRectangle 22"
+                            Padding="14">
+                        <VerticalStackLayout Spacing="10">
+
+                            <Grid ColumnDefinitions="Auto,*">
+                                <Image Source="user1.jpg"
+                                       WidthRequest="36"
+                                       HeightRequest="36"
+                                       Aspect="AspectFill"
+                                       Clip="EllipseGeometry Center=18,18 RadiusX=18 RadiusY=18"/>
+
+                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                    <Label Text="Sophia Bennett"
+                                           FontAttributes="Bold"
+                                           TextColor="White"/>
+
+                                    <Label Text="2 months ago"
+                                           FontSize="11"
+                                           TextColor="#9CA3AF"/>
+                                </VerticalStackLayout>
+                            </Grid>
+
+                            <Label Text="★★★★★"
+                                   TextColor="#22C55E"/>
+
+                            <Label Text="FitLife transformed my fitness journey. The personal training sessions are challenging yet rewarding."
+                                   FontSize="13"
+                                   TextColor="#D1FAE5"/>
+
+                            <Label Text="👍 12   💬 1"
+                                   FontSize="12"
+                                   TextColor="#9CA3AF"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- CTA -->
+                <VerticalStackLayout Padding="20" Spacing="14">
+                    <Label Text="Ready to Transform Your Life?"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+
+                    <Label Text="Embark on a journey to a healthier, happier you."
+                           FontSize="13"
+                           TextColor="#C7D2CC"/>
+
+                    <Button Text="Join Us Today"
+                            HeightRequest="48"
+                            CornerRadius="24"
+                            BackgroundColor="#22C55E"
+                            FontAttributes="Bold"
+                            TextColor="Black"/>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ================= BOTTOM TAB ================= -->
+        <Grid Grid.Row="2"
+              Padding="14"
+              BackgroundColor="#0B1A12"
+              ColumnDefinitions="*,*,*,*">
+
+            <Label Text="🏠&#10;Home"
+                   FontSize="11"
+                   TextColor="#22C55E"
+                   HorizontalTextAlignment="Center"/>
+
+            <Label Grid.Column="1"
+                   Text="🏋️&#10;Classes"
+                   FontSize="11"
+                   TextColor="#9CA3AF"
+                   HorizontalTextAlignment="Center"/>
+
+            <Label Grid.Column="2"
+                   Text="👤&#10;Trainers"
+                   FontSize="11"
+                   TextColor="#9CA3AF"
+                   HorizontalTextAlignment="Center"/>
+
+            <Label Grid.Column="3"
+                   Text="⚙️&#10;Profile"
+                   FontSize="11"
+                   TextColor="#9CA3AF"
+                   HorizontalTextAlignment="Center"/>
+        </Grid>
+
+    </Grid>
+</ContentPage>
