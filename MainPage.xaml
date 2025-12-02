@@ -22,7 +22,7 @@
                    FontSize="20"
                    TextColor="White"/>
         </Grid>
-<!--okijmoknininini-->
+
         <!-- ================= BODY ================= -->
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Spacing="28">
